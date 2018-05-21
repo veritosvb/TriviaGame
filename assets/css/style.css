@@ -19,6 +19,13 @@ a:hover {
   color: #f05f40;
 }
 
+#pregunta {
+    width:250px;
+    height:150px;
+    border: 0;
+    padding:20px;
+  }
+
 h1,
 h2,
 h3,

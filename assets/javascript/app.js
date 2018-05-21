@@ -1,34 +1,34 @@
 
 var trivia = [
   {
-    question: "pregunta 1",
-    answers: [" esta es la correctaanswer 1", "answer 2", "answer 3", "answer 4"],
+    question: "assets/images/1.png",
+    answers: ["Kiribati", "Danneborg ", "Manitoba", "Yemen"],
     correctAnswer:"0",
   },  
   {
-    question: "pregunta 2",
-    answers: ["answer 1", "yo soy la correcta answer 2", "answer 3", "answer 4"],
+    question: "assets/images/2.png",
+    answers: ["answer 1", "Ethiopia", "answer 3", "answer 4"],
     correctAnswer:"1",
   },
   {
-    question: "pregunta 3",
-    answers: ["answer 1", "answer 2", "i am answer 3", "answer 4"],
+    question: "assets/images/3.png",
+    answers: ["Aruba", "Barbados", "Bahamas", "Cuba"],
     correctAnswer:"2",
   },
   {
-    question: "pregunta 4",
-    answers: ["answer 1", "answer 2", "answer 3", "answer 4"],
-    correctAnswer:"3",
+    question: "assets/images/4.png",
+    answers: ["Jamaica", "Haiti", "Grenada", "St. Lucia"],
+    correctAnswer:"0",
 },
 {
     question: "pregunta 5",
-    answers: ["answer 1", "answer 2", "answer 3", "answer 4"],
-    correctAnswer:"0",
+    answers: ["answer 1", "Nigeria", "answer 3", "answer 4"],
+    correctAnswer:"11",
 },
 {
     question: "pregunta 6",
-    answers: ["answer 1", "answer 2", "answer 3", "answer 4"],
-    correctAnswer:"0",
+    answers: ["answer 1", "", "answer 3", "Cyprus"],
+    correctAnswer:"3",
 },
 {
     question: "pregunta 7",
@@ -111,7 +111,7 @@ var trivia = [
         stopwatch.start();
         $("#myList").empty();
         var a = trivia[questions.questionNumber];
-        $("#pregunta").text(a.question);
+        $("#pregunta").attr("src",a.question);
         console.log("question to print " + questions.questionNumber);
 
         for (var i = 0; i < 4 ; i++){
@@ -126,7 +126,7 @@ var trivia = [
         $("#score").text("Score: " + questions.score);
         $(document).off("click", ".respuesta");
         $("#display").text("Flag quiz");
-
+        $("")
       }  
     }
   };
@@ -176,7 +176,7 @@ var trivia = [
     $('#start').click(function(){
           // increase the question number counter
       questions.display();
-      $('#start').hide();
+      $('#preguntas').show();
       $('#score').show();
     });
 
