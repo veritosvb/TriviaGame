@@ -7,7 +7,7 @@ var trivia = [
   },  
   {
     question: "assets/images/2.png",
-    answers: ["answer 1", "Ethiopia", "answer 3", "answer 4"],
+    answers: ["Somalia", "Ethiopia", "Kenya", "Mozambique"],
     correctAnswer:"1",
   },
   {
