@@ -1,4 +1,4 @@
-
+var fail = new Audio("assets/images/fail.mp3");
 var trivia = [
   {
     question: "assets/images/1.png",
@@ -47,12 +47,12 @@ var trivia = [
   var clockRunning = false;
   
   var stopwatch = {
-    time: 11,
+    time: 6,
     start: function() {
         intervalId = setInterval(stopwatch.count, 1000);
     },
     stop: function() {
-      stopwatch.time = 11;
+      stopwatch.time = 6;
       clearInterval(intervalId);
     },
     count: function() {
@@ -83,14 +83,14 @@ var trivia = [
   };
 
   var showanswer = {
-    time: 3,
+    time: 2,
     start: function() {
       $(document).off("click", ".respuesta");
 
         intervalId2 = setInterval(showanswer.count, 1000);
     },
     stop: function() {
-      showanswer.time = 3;
+      showanswer.time = 2;
       clearInterval(intervalId2);
     },
     count: function() {
@@ -118,7 +118,6 @@ var trivia = [
         var a = trivia[questions.questionNumber];
         $("#pregunta").attr("src",a.question);
         console.log("question to print " + questions.questionNumber);
-
         for (var i = 0; i < 4 ; i++){
           var respuesta =$("<a class='btn-ans btn-light btn-xl'>");
           respuesta.attr("id",i );
@@ -126,12 +125,13 @@ var trivia = [
           respuesta.text(a.answers[i]);
           $("#myList").append(respuesta);
           }
+          console.log("printed questions");
+
       }
       else{
         $("#score").text("Score: " + questions.score);
         $(document).off("click", ".respuesta");
         $("#display").text("Flag quiz");
-        $("")
       }  
     }
   };
@@ -141,7 +141,7 @@ var trivia = [
     stopwatch.stop();
 
     //It will run for the amount of questions in the array
-    if(questions.questionNumber < trivia.length){
+    if(questions.questionNumber < trivia.length +1){
       var h = trivia[questions.questionNumber].correctAnswer;
       var answerSelected = $(this).attr("id");
       //if the selected answer is correct
@@ -155,12 +155,12 @@ var trivia = [
           showanswer.start();
           questions.score++;
           $("#score").text("Score: " + questions.score);
-
       }   
       // the answer is incorrect 
       else {
         $("#display").text("Wrong answer!!");
         questions.score--;
+        fail.play();
         $("#score").text("Score: " + questions.score);
         // Change the background of the  wrong answer and select the correct one.
         $("#" + answerSelected).attr("id", "incorrect");
@@ -171,8 +171,9 @@ var trivia = [
       }
     }
     else{
-      $("#score").text("Score: " + questions.score);
-      $(document).off("click", ".respuesta");
+         $("#score").text("Score: " + questions.score);
+        $(document).off("click", ".respuesta");
+        $("#display").text("Flag quiz");;
     }
   }
 

@@ -182,10 +182,11 @@ header.masthead p {
 }
 
 .btn-ans {
-  font-weight: 700;
-  text-transform: uppercase;
-  border: none;
-  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    border: 2px solid #F05F40;
+    border-radius: 300px;
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .btn-xl {
