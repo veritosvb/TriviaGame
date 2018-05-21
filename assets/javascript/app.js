@@ -21,19 +21,24 @@ var trivia = [
     correctAnswer:"0",
 },
 {
-    question: "pregunta 5",
-    answers: ["answer 1", "Nigeria", "answer 3", "answer 4"],
-    correctAnswer:"11",
+    question: "assets/images/5.jpg",
+    answers: ["Guinea", "Nigeria", " Ghana", "Chad"],
+    correctAnswer:"1",
 },
 {
-    question: "pregunta 6",
-    answers: ["answer 1", "", "answer 3", "Cyprus"],
+    question: "assets/images/6.jpg",
+    answers: ["Libya", "Jordan", "Lebanon", "Cyprus"],
     correctAnswer:"3",
 },
 {
-    question: "pregunta 7",
-    answers: [" Ultimo answer 1", " ultimoanswer 2", "ultimoanswer 3", "answer 4"],
+    question: "assets/images/7.jpg",
+    answers: ["Birmania", "Turkmenistan", "Tajikistan", "Nepal"],
     correctAnswer:"0",
+},
+{
+  question: "assets/images/8.png",
+  answers: ["Guyana", " Suriname", "Paramaribo", "Bioku"],
+  correctAnswer:"0",
 }
 ];
   
