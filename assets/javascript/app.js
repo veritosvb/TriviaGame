@@ -132,8 +132,8 @@ var trivia = [
         $(document).off("click", ".respuesta");
         $("#display").text("Flag quiz");
         $("#board").empty();
+        $("#board").html("<h1>G A M E O V E R !</h1>")
         $("#myList").empty();
-        $("#score").addClass("final");
         clockRunning = false;
       }  
     }
@@ -175,7 +175,6 @@ var trivia = [
         questions.questionNumber = 0;
         questions.score = 0;
         questions.display();
-        $('#preguntas').show();
         $('#score').show();
       }
 
