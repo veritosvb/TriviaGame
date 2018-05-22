@@ -98,8 +98,6 @@ var trivia = [
       if(showanswer.time <=  0){
         console.log("here");
         showanswer.stop();
-+       // increase the score
-        // display the next question
         questions.display();
         $(document).on("click", ".respuesta",selectedAnswer);
 
@@ -116,7 +114,9 @@ var trivia = [
         stopwatch.start();
         $("#myList").empty();
         var a = trivia[questions.questionNumber];
-        $("#pregunta").attr("src",a.question);
+        var p = $('<img id ="pregunta">');
+        p.attr("src",a.question);
+        $("#board").html(p);
         console.log("question to print " + questions.questionNumber);
         for (var i = 0; i < 4 ; i++){
           var respuesta =$("<a class='btn-ans btn-light btn-xl'>");
@@ -126,68 +126,62 @@ var trivia = [
           $("#myList").append(respuesta);
           }
           console.log("printed questions");
-
       }
       else{
         $("#score").text("Score: " + questions.score);
         $(document).off("click", ".respuesta");
         $("#display").text("Flag quiz");
+        $("#board").empty();
+        $("#myList").empty();
+        $("#score").addClass("final");
+        clockRunning = false;
       }  
     }
   };
 
   function selectedAnswer() {
-    console.log("question number " + questions.questionNumber);
     stopwatch.stop();
-
-    //It will run for the amount of questions in the array
-    if(questions.questionNumber < trivia.length +1){
       var h = trivia[questions.questionNumber].correctAnswer;
       var answerSelected = $(this).attr("id");
       //if the selected answer is correct
-      console.log("answer " + h);
-      console.log("selected answer " +answerSelected);
       questions.questionNumber++;
 
-      if(answerSelected == h){
-          $("#display").text("Correct!! ");
-          $("#" + answerSelected).attr("id", "correct");
-          showanswer.start();
-          questions.score++;
-          $("#score").text("Score: " + questions.score);
-      }   
+    if(answerSelected == h){
+      $("#display").text("Correct!! ");
+      $("#" + answerSelected).attr("id", "correct");
+      showanswer.start();
+      questions.score++;
+      $("#score").text("Score: " + questions.score);
+    }   
       // the answer is incorrect 
-      else {
-        $("#display").text("Wrong answer!!");
-        questions.score--;
-        fail.play();
-        $("#score").text("Score: " + questions.score);
-        // Change the background of the  wrong answer and select the correct one.
-        $("#" + answerSelected).attr("id", "incorrect");
-        $("#" + h).addClass("active show");
-        $("#" + h).attr("id", "correct");
-        $("#" + h).prepend('<i class="fas fa-check-circle"></i>');
-        showanswer.start();
-      }
-    }
-    else{
-         $("#score").text("Score: " + questions.score);
-        $(document).off("click", ".respuesta");
-        $("#display").text("Flag quiz");;
+    else {
+      $("#display").text("Wrong answer!!");
+      questions.score--;
+      fail.play();
+      $("#score").text("Score: " + questions.score);
+      // Change the background of the  wrong answer and select the correct one.
+      $("#" + answerSelected).attr("id", "incorrect");
+      $("#" + h).addClass("active show");
+      $("#" + h).attr("id", "correct");
+      showanswer.start();
     }
   }
 
-   $(document).ready(function(){
-    
+  $(document).ready(function(){
     $('#start').click(function(){
           // increase the question number counter
-      questions.display();
-      $('#preguntas').show();
-      $('#score').show();
+      if(!clockRunning){
+        clockRunning=true;
+        questions.questionNumber = 0;
+        questions.score = 0;
+        questions.display();
+        $('#preguntas').show();
+        $('#score').show();
+      }
+
     });
 
     $(document).on("click", ".respuesta", selectedAnswer);
-   
   });
 
   // Smooth scrolling using jQuery easing
