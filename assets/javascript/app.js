@@ -176,6 +176,7 @@ var trivia = [
         questions.score = 0;
         questions.display();
         $('#score').show();
+        $('#pregunta').show();
 
       }
 
