@@ -115,6 +115,7 @@ var trivia = [
         $("#myList").empty();
         var a = trivia[questions.questionNumber];
         var p = $('<img id ="pregunta">');
+        $('#pregunta').show();
         p.attr("src",a.question);
         $("#board").html(p);
         console.log("question to print " + questions.questionNumber);
